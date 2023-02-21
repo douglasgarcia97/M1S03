@@ -1,12 +1,14 @@
 package Banco_Floripa;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Banco_Floripa {
 
 	public static void main(String[] args) {
 		Scanner entrada = new Scanner(System.in);
-		
+		List<Conta> contas = new ArrayList<>();
 		while (true) {
 		int opcaoSelecionada;
 		
@@ -39,10 +41,16 @@ public class Banco_Floripa {
 			break;
 		}
 		case 5: {
-			System.out.println("Abrir conta");
-			
 			Conta conta = new Conta();
-			System.out.println(conta.toString());
+			if(contas.isEmpty()) {
+				conta.setNumeroConta("1");
+				
+			}else {
+				Integer numeroConta = contas.size() + 1;
+				conta.setNumeroConta(numeroConta.toString());
+			}
+			contas.add(conta);
+			
 			break;
 		}
 		case 6: {
